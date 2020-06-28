@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CLOCK DARK THEME</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="clock">
+            <div class="hour">
+                <div class="hr" id="hr">
+
+                </div>
+            </div>
+            <div class="min">
+                <div class="mn" id="mn">
+
+                </div>
+            </div>
+            <div class="sec">
+                <div class="sc" id="sc">
+
+                </div>
+            </div>
+        </div>
+        <!-- <script>
+            document.write(day.getTime())
+        </script> -->
+        
+        <script type="text/javascript">
+            const deg = 6;
+            const hr=document.querySelector('#hr');
+            const mn=document.querySelector('#mn');
+            const sc=document.querySelector('#sc');
+
+            setInterval(()=>{
+
+            let day = new Date();
+            let hh = day.getHours() * 30; /* angle */
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
+
+            hr.style.transform=`rotateZ(${(hh)+(mm/12)}deg)`;
+            mn.style.transform=`rotateZ(${mm}deg)`;
+            sc.style.transform=`rotateZ(${ss}deg)`;
+
+            document.getElementById("datetime").innerHTML = day.toLocaleTimeString();
+
+            })
+        
+        </script>
+<div class="tw">
+    <p><span id="datetime"></span></p>
+</div>
+
+
+<!-- <script>
+var dt = new Date();
+
+</script> -->
+        
+    </body>
+</html>
